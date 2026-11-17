@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "seconds": 124.92,
+  "bytes": 1449490,
+  "full_decode_passed": true,
+  "distinct_sampled_frames": 6,
+  "sample_times": [
+    5.0,
+    27.984,
+    50.968,
+    73.952,
+    96.936,
+    119.92
+  ],
+  "sha256": "76ab4e6db51a0d429bcf0d80c6d45ce8aaedbfcbb6dde9b929c7a24a2966e18a"
+}

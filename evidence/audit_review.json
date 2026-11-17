@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "reviewed_at_utc": "2026-11-17T16:04:38.823361+00:00",
+  "scope": "Experiment 1B required technical requirements and all four bonus features; submission deferred by user",
+  "integration_tests": {
+    "total": 32,
+    "passed": 32,
+    "skipped": 0
+  },
+  "protocol_storage_lifecycle_tests": {
+    "total": 24,
+    "passed": 24,
+    "skipped": 0
+  },
+  "gui": "PASS: simultaneous upload and two downloads, resume, persistent channels, disconnect",
+  "windows_acl": "PASS: isolated runtime applied and inspected; no different-account login attempt",
+  "video": "PASS: 124.92 s real build/deploy/test/GUI capture; full decode verified",
+  "report": {
+    "pages": 13,
+    "rendered_and_reviewed": true,
+    "sha256": "704ea43f7b35d599f6493e2c23bddf66631b389e5b9c3893eeda9daecc78bc11"
+  },
+  "bonus_features": {
+    "upload_download_resume": "verified including server restart and damaged partial reset",
+    "public_key_authentication": "verified mTLS and exact user certificate pin",
+    "simultaneous_multiple_files_gui": "verified",
+    "per_user_bandwidth": "verified shared across connections"
+  },
+  "material_boundaries": [
+    "Application resource limits do not prevent upstream link saturation",
+    "Certificate pin revocation requires configuration update and daemon restart",
+    "Atomic final publication requires a filesystem supporting hard links",
+    "Windows execution verified; Linux ACL script supplied without execution in this acceptance run",
+    "Name, student ID, remote Git publication and actual submission deferred by user"
+  ],
+  "open_technical_findings": [],
+  "reviewed_sources_sha256": {
+    "docs/requirements.json": "1bdc9c6f14f3e4dcf1e35987a6f5c26facd89a6d619774cf1e1b3cfaa64bf972",
+    "securetransfer/__init__.py": "7c1ecb155b6064fb40b9e8ac73d08cf491300b47d0cc80858e080e2529a3994f",
+    "securetransfer/client.py": "59f2c26041c08438a4d6295d6c30d447658722672f9eeb9f2afced1dbab7dfd7",
+    "securetransfer/gui.py": "f483d7ea1b39eb5982b3be91bc08f5d798c6f5e75b72c27ef6ffc2b8e3cbb5b7",
+    "securetransfer/protocol.py": "ebb48b11869cb9398be5b3a225a038d15487892af7aa141b19b603a20edb5d09",
+    "securetransfer/security.py": "62c13475e3d2174c7a47609a10781a3e96dc28ae99a6760883f5cbadc317d6e3",
+    "securetransfer/server.py": "340b079c60c02c4dd4e862ad83e7f0e4c026853452d14d830ddb56783cd2c132",
+    "tests/test_integration.py": "54adcf16c86752eeb0e4d1f86807dba44b5bfe3449673d83357a7f9ced8293b3",
+    "tests/test_server_unit.py": "309a1789e106751dc58a60518e3ea0ec7c40acdfe6dee18b1753104f96fdc746",
+    "tools/build_report.py": "3d18f2256eb5d5d8e6993079fa9d4fa78b258a749537ff61f8ee219f3f76b6b3",
+    "tools/verify_integration.py": "7ae9a59883925397caf84c48b59aad6145c9056462af0b1db3a4f3aeae6b4840"
+  }
+}

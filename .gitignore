@@ -9,3 +9,4 @@ evidence/report_pages/
 *.part
 tmp/
 docs/*.pdf
+evidence/package_verification.json

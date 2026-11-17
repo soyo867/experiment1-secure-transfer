@@ -1,0 +1,37 @@
+test_aggregate_bandwidth_shared_by_same_identity_connections (test_integration.IntegrationTests.test_aggregate_bandwidth_shared_by_same_identity_connections) ... ok
+test_bad_hostname_rejected (test_integration.IntegrationTests.test_bad_hostname_rejected) ... ok
+test_binary_unicode_empty_roundtrip (test_integration.IntegrationTests.test_binary_unicode_empty_roundtrip) ... ok
+test_both_directions_resume_after_server_restart (test_integration.IntegrationTests.test_both_directions_resume_after_server_restart) ... ok
+test_cancel_retains_part_across_new_connection (test_integration.IntegrationTests.test_cancel_retains_part_across_new_connection) ... ok
+test_connection_limit_rejects_excess_without_breaking_active_client (test_integration.IntegrationTests.test_connection_limit_rejects_excess_without_breaking_active_client) ... ok
+test_connection_persists_across_operations_and_heartbeat (test_integration.IntegrationTests.test_connection_persists_across_operations_and_heartbeat) ... ok
+test_corrupt_download_partial_never_published_then_reset (test_integration.IntegrationTests.test_corrupt_download_partial_never_published_then_reset) ... ok
+test_corrupt_upload_partial_rejected_then_explicit_reset (test_integration.IntegrationTests.test_corrupt_upload_partial_rejected_then_explicit_reset) ... ok
+test_declared_file_size_limit (test_integration.IntegrationTests.test_declared_file_size_limit) ... ok
+test_download_cancel_and_resume (test_integration.IntegrationTests.test_download_cancel_and_resume) ... ok
+test_existing_final_file_cannot_be_overwritten (test_integration.IntegrationTests.test_existing_final_file_cannot_be_overwritten) ... ok
+test_malformed_json_or_magic_closes_only_offending_connection (test_integration.IntegrationTests.test_malformed_json_or_magic_closes_only_offending_connection) ... ok
+test_missing_client_certificate_rejected (test_integration.IntegrationTests.test_missing_client_certificate_rejected) ... ok
+test_multiuser_simultaneous_upload_download (test_integration.IntegrationTests.test_multiuser_simultaneous_upload_download) ... ok
+test_oversized_frame_rejected_without_body (test_integration.IntegrationTests.test_oversized_frame_rejected_without_body) ... ok
+test_path_traversal_and_windows_special_names_rejected (test_integration.IntegrationTests.test_path_traversal_and_windows_special_names_rejected) ... ok
+test_request_rate_limit (test_integration.IntegrationTests.test_request_rate_limit) ... ok
+test_revoked_pinned_certificate_rejected (test_integration.IntegrationTests.test_revoked_pinned_certificate_rejected) ... ok
+test_slow_frame_deadline_closes_connection (test_integration.IntegrationTests.test_slow_frame_deadline_closes_connection) ... ok
+test_sql_metacharacters_are_only_filename_data (test_integration.IntegrationTests.test_sql_metacharacters_are_only_filename_data) ... ok
+test_symlink_cannot_escape_user_root (test_integration.IntegrationTests.test_symlink_cannot_escape_user_root) ... ok
+test_tls_handshake_timeout_releases_slot (test_integration.IntegrationTests.test_tls_handshake_timeout_releases_slot) ... ok
+test_transfer_id_is_bound_to_user (test_integration.IntegrationTests.test_transfer_id_is_bound_to_user) ... ok
+test_untrusted_client_certificate_rejected (test_integration.IntegrationTests.test_untrusted_client_certificate_rejected) ... ok
+test_untrusted_server_ca_rejected (test_integration.IntegrationTests.test_untrusted_server_ca_rejected) ... ok
+test_upload_cancel_and_resume (test_integration.IntegrationTests.test_upload_cancel_and_resume) ... ok
+test_user_bandwidth_enforced (test_integration.IntegrationTests.test_user_bandwidth_enforced) ... ok
+test_user_quota_reserves_pending_uploads (test_integration.IntegrationTests.test_user_quota_reserves_pending_uploads) ... ok
+test_user_roots_are_isolated (test_integration.IntegrationTests.test_user_roots_are_isolated) ... ok
+test_wrong_chunk_offset_and_early_commit_rejected (test_integration.IntegrationTests.test_wrong_chunk_offset_and_early_commit_rejected) ... ok
+test_wrong_digest_never_publishes_file (test_integration.IntegrationTests.test_wrong_digest_never_publishes_file) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 29.151s
+
+OK

@@ -1,0 +1,37 @@
+{
+  "build_passed": true,
+  "pipeline_finished": true,
+  "session_ids_before": [
+    "eebeee6f6f7c4efa9b837b55ef671873",
+    "9c3285793193418eba19820e172348c2",
+    "8e70f4eff6d34d1e813e64e54d652b69",
+    "90c2302059444153b867af1798a5627f"
+  ],
+  "upload_job": 1,
+  "upload_resume_offset": 393216,
+  "download_job": 6,
+  "download_resume_offset": 458752,
+  "session_ids_after": [
+    "eebeee6f6f7c4efa9b837b55ef671873",
+    "9c3285793193418eba19820e172348c2",
+    "8e70f4eff6d34d1e813e64e54d652b69",
+    "90c2302059444153b867af1798a5627f"
+  ],
+  "client_stats": {
+    "heartbeat_count": 62,
+    "connections": 4,
+    "session_ids": [
+      "eebeee6f6f7c4efa9b837b55ef671873",
+      "9c3285793193418eba19820e172348c2",
+      "8e70f4eff6d34d1e813e64e54d652b69",
+      "90c2302059444153b867af1798a5627f"
+    ]
+  },
+  "hashes": {
+    "dataset.bin": "91d3beb88a9b2f778a6c44a1c53b63d3c79931845a9aef84b3fb414610bd1938",
+    "parallel.bin": "33bc8aab40703678c3ebe94d2dd8f2afff285dd901f9234e841e4679f8204fd5"
+  },
+  "completed_jobs": 6,
+  "errors": [],
+  "result": "PASS"
+}

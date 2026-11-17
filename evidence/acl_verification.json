@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "scope": "Fresh isolated project runtime/acl_verification_* directory only",
+  "root_inheritance_disabled": true,
+  "authorized_principals_only": true,
+  "rules": [
+    {
+      "principal": "SYSTEM",
+      "rights": "FullControl",
+      "access": "Allow",
+      "inheritance": "ContainerInherit, ObjectInherit",
+      "inherited": false
+    },
+    {
+      "principal": "Administrators",
+      "rights": "FullControl",
+      "access": "Allow",
+      "inheritance": "ContainerInherit, ObjectInherit",
+      "inherited": false
+    },
+    {
+      "principal": "current execution account",
+      "rights": "Modify, Synchronize",
+      "access": "Allow",
+      "inheritance": "ContainerInherit, ObjectInherit",
+      "inherited": false
+    }
+  ],
+  "other_account_login_tested": false,
+  "global_permissions_modified": false,
+  "note": "Applied provided Windows ACL script using current existing execution account; no accounts created and no OS trust changes."
+}

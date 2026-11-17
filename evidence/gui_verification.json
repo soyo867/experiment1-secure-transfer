@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "checks": [
+    "mTLS GUI connect, identity, 4 persistent channels, button state",
+    "concurrent uploads and remote directory refresh",
+    "simultaneous upload and two downloads, pause button, byte integrity",
+    "resume button, nonzero restart offset, same TCP sessions after jobs",
+    "explicit disconnect restores controls"
+  ],
+  "tk_callback_errors": [],
+  "upload_count": 3,
+  "download_count": 2,
+  "resumed_bytes": 131072,
+  "persistent_session_ids": [
+    "11dbb4c24d1e47858690c62cd4ba42ef",
+    "ebc4114d46534bb685b33c1353f2daa9",
+    "72a160e9333947e78df90a661f3acfb6",
+    "b301bfce1aac41d79742edcf54374a78"
+  ]
+}

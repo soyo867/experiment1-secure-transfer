@@ -1,0 +1,29 @@
+test_absolute_frame_timeout (test_server_unit.FramingTests.test_absolute_frame_timeout) ... ok
+test_invalid_header_fields (test_server_unit.FramingTests.test_invalid_header_fields) ... ok
+test_invalid_json (test_server_unit.FramingTests.test_invalid_json) ... ok
+test_one_byte_tcp_segmentation (test_server_unit.FramingTests.test_one_byte_tcp_segmentation) ... ok
+test_oversized_lengths_rejected_before_body (test_server_unit.FramingTests.test_oversized_lengths_rejected_before_body) ... ok
+test_send_receive_real_socketpair (test_server_unit.FramingTests.test_send_receive_real_socketpair) ... ok
+test_truncated_stream (test_server_unit.FramingTests.test_truncated_stream) ... ok
+test_two_coalesced_frames (test_server_unit.FramingTests.test_two_coalesced_frames) ... ok
+test_stop_during_socket_wrap_does_not_leave_untracked_tls_socket (test_server_unit.LifecycleTests.test_stop_during_socket_wrap_does_not_leave_untracked_tls_socket) ... ok
+test_atomic_hash_mismatch_does_not_publish (test_server_unit.StorageTests.test_atomic_hash_mismatch_does_not_publish) ... ok
+test_cancel_discard_releases_quota (test_server_unit.StorageTests.test_cancel_discard_releases_quota) ... ok
+test_case_variants_share_one_upload_lease (test_server_unit.StorageTests.test_case_variants_share_one_upload_lease) ... ok
+test_disconnect_resume_prefix (test_server_unit.StorageTests.test_disconnect_resume_prefix) ... ok
+test_empty_file_commit (test_server_unit.StorageTests.test_empty_file_commit) ... ok
+test_final_is_immutable (test_server_unit.StorageTests.test_final_is_immutable) ... ok
+test_full_width_directory_pages_fit_protocol (test_server_unit.StorageTests.test_full_width_directory_pages_fit_protocol) ... ok
+test_incorrect_offset_and_declared_size (test_server_unit.StorageTests.test_incorrect_offset_and_declared_size) ... ok
+test_quota_reserves_announced_size (test_server_unit.StorageTests.test_quota_reserves_announced_size) ... ok
+test_rejected_filenames (test_server_unit.StorageTests.test_rejected_filenames) ... ok
+test_restart_after_publish_and_partial_unlink (test_server_unit.StorageTests.test_restart_after_publish_and_partial_unlink) ... ok
+test_restart_after_publish_before_partial_cleanup (test_server_unit.StorageTests.test_restart_after_publish_before_partial_cleanup) ... ok
+test_restart_cleans_unjournaled_temporary_files (test_server_unit.StorageTests.test_restart_cleans_unjournaled_temporary_files) ... ok
+test_restart_resume (test_server_unit.StorageTests.test_restart_resume) ... ok
+test_upload_lease_is_connection_bound (test_server_unit.StorageTests.test_upload_lease_is_connection_bound) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.396s
+
+OK

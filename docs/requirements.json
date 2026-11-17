@@ -1,0 +1,391 @@
+{
+  "source": "实验 1 讲解 2026.pdf",
+  "experiment": "1B：安全文件传输软件设计与实现",
+  "interpretation": "技术要求与提交手续分别验收。按用户当前要求暂不提交；姓名、学号、正式命名和远程开源推迟到提交前，不作为本阶段技术任务的阻塞。",
+  "requirements": [
+    {
+      "id": "R01",
+      "pages": [
+        33
+      ],
+      "level": "required",
+      "requirement": "实现简单且安全的文件传输协议",
+      "evidence": [
+        "securetransfer/protocol.py",
+        "报告：协议头布局、消息边界、请求响应关联和状态机",
+        "实际TLS上传/下载测试"
+      ],
+      "status": "verified",
+      "verification_note": "20字节固定头、有界JSON/payload与实际TLS收发已验证；32项集成全通过。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R02",
+      "pages": [
+        33
+      ],
+      "level": "required",
+      "requirement": "多用户并发访问",
+      "evidence": [
+        "多个独立客户端身份同时传输的集成测试",
+        "服务端并发连接记录"
+      ],
+      "status": "verified",
+      "verification_note": "两个证书身份、四个并发上传/下载任务、独立目录。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R03",
+      "pages": [
+        33,
+        44
+      ],
+      "level": "required",
+      "requirement": "文件完整传输；先声明大小，准确接收并确认，无需依靠关闭连接判断完成",
+      "evidence": [
+        "空文件、二进制文件、大文件上传下载后的SHA-256一致性",
+        "长度与哈希错误拒绝测试",
+        "同一连接上传后继续LIST/PING"
+      ],
+      "status": "verified",
+      "verification_note": "空文件、262400字节二进制、8MiB文件逐字节一致；错误长度/offset/hash不发布。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R04",
+      "pages": [
+        33,
+        49,
+        50
+      ],
+      "level": "required",
+      "requirement": "通信全过程防中间人攻击",
+      "evidence": [
+        "TLS双向证书验证与hostname校验配置",
+        "不可信CA、错hostname、缺少客户端证书拒绝测试"
+      ],
+      "status": "verified",
+      "verification_note": "不可信服务端CA、错hostname、不可信客户端、无客户端证书、撤销指纹全部被拒绝。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R05",
+      "pages": [
+        33
+      ],
+      "level": "required",
+      "requirement": "针对DDoS/资源耗尽的防护",
+      "evidence": [
+        "全局/IP并发上限、握手/帧超时、最大帧/文件/磁盘配额、请求限速配置",
+        "超长帧、连接饱和、空闲或慢客户端测试",
+        "报告说明应用层防护及链路容量DDoS需上游防护"
+      ],
+      "status": "verified",
+      "verification_note": "应用层资源耗尽测试通过；范围为连接/握手/整帧/请求/文件/磁盘限额，链路饱和需网络侧措施。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R06",
+      "pages": [
+        33
+      ],
+      "level": "required",
+      "requirement": "防SQL注入及常见输入攻击",
+      "evidence": [
+        "业务不使用SQL且无动态SQL执行",
+        "不可信文件名/元数据严格校验",
+        "注入样式输入和路径遍历测试"
+      ],
+      "status": "verified",
+      "verification_note": "没有SQL与shell执行路径；SQL元字符作为普通文件名数据；路径穿越、设备名、ADS拒绝。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R07",
+      "pages": [
+        36,
+        37
+      ],
+      "level": "required",
+      "requirement": "持久TCP连接；明确keep alive；后台维护直到用户手动关闭",
+      "evidence": [
+        "SO_KEEPALIVE配置和后台PING实现",
+        "连续多命令同session id",
+        "传输结束仍可继续请求",
+        "正常手动断开BYE"
+      ],
+      "status": "verified",
+      "verification_note": "SO_KEEPALIVE=1，同session连续执行LIST/上传/下载/心跳，传输后5次心跳已记录。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "R08",
+      "pages": [
+        36,
+        37,
+        46,
+        48
+      ],
+      "level": "required",
+      "requirement": "报告解释应用层协议设计原理，给出每模块时序图与协议头部信息图，论证正确性",
+      "evidence": [
+        "报告协议头图",
+        "握手认证、心跳、列表、上传、下载、取消/续传、退出/错误各模块时序图",
+        "分帧/长度/偏移/提交规则正确性说明"
+      ],
+      "status": "verified",
+      "verification_note": "tools/build_report.py含协议图与8模块时序图；已生成13页PDF并逐页检查布局。",
+      "verification_artifacts": [
+        "tools/build_report.py",
+        "docs/实验1B_安全文件传输报告.pdf"
+      ]
+    },
+    {
+      "id": "R09",
+      "pages": [
+        45
+      ],
+      "level": "required",
+      "requirement": "服务端严格ACL，客户端只能读写指定目录，配置用脚本或其他形式明确提供",
+      "evidence": [
+        "服务端每用户root配置",
+        "Windows ACL或Linux权限部署脚本",
+        "用户隔离、非法路径、符号链接/重解析点拒绝测试",
+        "报告解释OS权限与应用ACL边界"
+      ],
+      "status": "verified",
+      "verification_note": "应用用户隔离、路径及Windows符号链接测试通过。Windows ACL脚本在新建独立runtime实际执行；继承关闭，仅当前执行账号/SYSTEM/Administrators，未做另一账号登录拒绝测试。Linux脚本提供但未在本轮执行。",
+      "verification_artifacts": [
+        "tools/acl_windows.ps1",
+        "tools/acl_linux.sh",
+        "evidence/acl_verification.json",
+        "evidence/integration_tests.json"
+      ]
+    },
+    {
+      "id": "R10",
+      "pages": [
+        33
+      ],
+      "level": "required",
+      "requirement": "视频展示编译、部署、测试全过程，非Windows实现须演示运行成功",
+      "evidence": [
+        "MP4真实运行视频",
+        "源码编译检查输出",
+        "初始化证书/配置、服务启动、GUI和测试输出"
+      ],
+      "status": "verified",
+      "verification_note": "真实Windows全过程录像124.92秒：依赖/源码编译检查、全新证书初始化、测试、GUI双向并发/暂停续传、心跳与断开；完整解码通过，6个采样帧互不相同。",
+      "verification_artifacts": [
+        "evidence/ex1B_play.mp4",
+        "evidence/video_verification.json",
+        "evidence/video_quality.json"
+      ]
+    },
+    {
+      "id": "R11",
+      "pages": [
+        2,
+        3
+      ],
+      "level": "required",
+      "requirement": "姓名_学号_EX1B目录，含源码、MP4、PDF或DOCX；无加密ZIP",
+      "evidence": [
+        "提交ZIP文件名和目录清单",
+        "ZIP CRC校验且所有条目未加密",
+        "个人信息真实填写"
+      ],
+      "status": "deferred_until_submission_by_user",
+      "verification_note": "按用户要求当前暂不提交。姓名与学号未提供；不能将占位命名视为已完成提交格式。已在报告提供提交前填写与推送说明。"
+    },
+    {
+      "id": "R12",
+      "pages": [
+        2,
+        3
+      ],
+      "level": "required",
+      "requirement": "代码开源，GitHub/Gitee/GitLab有完整记录；报告写入Git链接",
+      "evidence": [
+        "远程仓库URL与已推送commit历史",
+        "报告可点击仓库URL；本地bundle不能替代远程URL"
+      ],
+      "status": "deferred_until_submission_by_user",
+      "verification_note": "按用户要求当前暂不提交。远程仓库未提供/未推送；本地Git或bundle不替代远程开源要求。已在报告提供提交前填写与推送说明。"
+    },
+    {
+      "id": "R13",
+      "pages": [
+        3
+      ],
+      "level": "required",
+      "requirement": "说明统一写入报告，无需README",
+      "evidence": [
+        "报告包含环境/启动/复现/限制/提交说明"
+      ],
+      "status": "verified",
+      "verification_note": "报告生成源包含部署、复现、限制和提交说明；已生成PDF检查。",
+      "verification_artifacts": [
+        "tools/build_report.py",
+        "docs/实验1B_安全文件传输报告.pdf"
+      ]
+    },
+    {
+      "id": "B01",
+      "pages": [
+        40
+      ],
+      "level": "bonus",
+      "requirement": "断点续传",
+      "evidence": [
+        "上传中断后从已确认offset恢复并校验前缀",
+        "下载part续传最终哈希一致"
+      ],
+      "status": "verified",
+      "verification_note": "双向取消后131072字节恢复，服务端重启后双向同偏移恢复；损坏partial拒绝，显式reset重试成功。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "B02",
+      "pages": [
+        40
+      ],
+      "level": "bonus",
+      "requirement": "基于公钥的身份认证或双向证书",
+      "evidence": [
+        "mTLS不同证书绑定不同用户",
+        "无证书/未知身份拒绝"
+      ],
+      "status": "verified",
+      "verification_note": "本地新建CA签发双向TLS证书，CN映射和精确DER SHA-256指纹绑定。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "B03",
+      "pages": [
+        40
+      ],
+      "level": "bonus",
+      "requirement": "GUI支持同时上传、下载多个文件",
+      "evidence": [
+        "GUI多个并发传输任务及进度",
+        "同用户多个持久连接并行上传下载测试"
+      ],
+      "status": "verified",
+      "verification_note": "实际GUI3个上传与2个下载验证通过，包含同时上传和多个下载、暂停续传、4持久通道和手动断开；无Tk callback错误。",
+      "verification_artifacts": [
+        "evidence/gui_verification.json"
+      ]
+    },
+    {
+      "id": "B04",
+      "pages": [
+        40
+      ],
+      "level": "bonus",
+      "requirement": "按用户身份控制服务端传输带宽",
+      "evidence": [
+        "普通/VIP速率配置",
+        "同用户跨连接聚合速率限制测试",
+        "不同身份速率差异测量"
+      ],
+      "status": "verified",
+      "verification_note": "同身份2连接524288字节耗时4.031秒（131072 B/s）；慢/快身份分别4.094秒/0.609秒。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    },
+    {
+      "id": "G01",
+      "pages": [
+        33,
+        34
+      ],
+      "level": "suggestion",
+      "requirement": "原生GUI或Web GUI；具体语言/框架是建议",
+      "evidence": [
+        "Windows Tk GUI实际运行"
+      ],
+      "status": "verified",
+      "verification_note": "真实Tk GUI验证通过，无callback错误。",
+      "verification_artifacts": [
+        "evidence/gui_verification.json"
+      ]
+    },
+    {
+      "id": "G02",
+      "pages": [
+        45
+      ],
+      "level": "discussion",
+      "requirement": "思考chroot/容器隔离与目录ACL",
+      "evidence": [
+        "报告说明隔离部署方案及当前实际部署边界"
+      ],
+      "status": "verified",
+      "verification_note": "报告源解释应用ACL和OS权限边界、专用低权限用户、容器/chroot增强隔离。",
+      "verification_artifacts": [
+        "tools/build_report.py",
+        "docs/实验1B_安全文件传输报告.pdf"
+      ]
+    },
+    {
+      "id": "G03",
+      "pages": [
+        60
+      ],
+      "level": "guidance",
+      "requirement": "证书应可撤销",
+      "evidence": [
+        "精确证书指纹/序列拒绝配置",
+        "旧证书撤销后认证失败测试"
+      ],
+      "status": "verified",
+      "verification_note": "修改指纹并重启服务撤销旧证书；重启关闭已有会话，不宣称热撤销。",
+      "verification_artifacts": [
+        "evidence/integration_tests.json",
+        "evidence/integration_tests.txt"
+      ]
+    }
+  ],
+  "submission_deadline": "2026-11-24T23:55:00+08:00",
+  "audit_summary": {
+    "integration_tests": 32,
+    "passed": 32,
+    "skipped": 0,
+    "environment": "Windows 10.0.26300 / Python 3.11.5",
+    "source_of_measurements": "evidence/integration_tests.json",
+    "note": "32项真实TLS集成、24项协议/存储/生命周期单元均通过，无跳过；GUI、局部Windows ACL、真实MP4录像及13页PDF均已验证。姓名学号与远程推送按用户要求推迟至提交前。",
+    "unit_tests": 24,
+    "total_tests": 56,
+    "technical_requirements_complete": true
+  }
+}
