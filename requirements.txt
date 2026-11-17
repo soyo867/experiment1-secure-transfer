@@ -1,0 +1,2 @@
+# Certificate provisioning only. Server/client use the Python standard library.
+cryptography==46.0.5

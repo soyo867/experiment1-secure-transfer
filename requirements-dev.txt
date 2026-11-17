@@ -1,0 +1,4 @@
+-r requirements.txt
+reportlab>=4,<5
+Pillow>=10,<13
+imageio-ffmpeg>=0.5,<1
