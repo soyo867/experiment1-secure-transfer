@@ -7,3 +7,5 @@ evidence/*.log
 evidence/report_pages/
 *.key
 *.part
+tmp/
+docs/*.pdf
