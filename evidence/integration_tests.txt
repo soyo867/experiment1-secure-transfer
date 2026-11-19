@@ -32,6 +32,6 @@ test_wrong_chunk_offset_and_early_commit_rejected (test_integration.IntegrationT
 test_wrong_digest_never_publishes_file (test_integration.IntegrationTests.test_wrong_digest_never_publishes_file) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 29.151s
+Ran 32 tests in 29.168s
 
 OK

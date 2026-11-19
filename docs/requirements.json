@@ -1,7 +1,7 @@
 {
   "source": "实验 1 讲解 2026.pdf",
   "experiment": "1B：安全文件传输软件设计与实现",
-  "interpretation": "技术要求与提交手续分别验收。按用户当前要求暂不提交；姓名、学号、正式命名和远程开源推迟到提交前，不作为本阶段技术任务的阻塞。",
+  "interpretation": "技术要求、提交格式与远程开源状态均已完成复核。姓名、学号和远程仓库信息已填入本次报告与源码元数据。",
   "requirements": [
     {
       "id": "R01",
@@ -216,8 +216,8 @@
         "ZIP CRC校验且所有条目未加密",
         "个人信息真实填写"
       ],
-      "status": "deferred_until_submission_by_user",
-      "verification_note": "按用户要求当前暂不提交。姓名与学号未提供；不能将占位命名视为已完成提交格式。已在报告提供提交前填写与推送说明。"
+      "status": "verified",
+      "verification_note": "姓名、学号已填入 submission.json，个人命名 ZIP 已重新生成并通过结构、CRC、哈希和页数核验。"
     },
     {
       "id": "R12",
@@ -231,8 +231,8 @@
         "远程仓库URL与已推送commit历史",
         "报告可点击仓库URL；本地bundle不能替代远程URL"
       ],
-      "status": "deferred_until_submission_by_user",
-      "verification_note": "按用户要求当前暂不提交。远程仓库未提供/未推送；本地Git或bundle不替代远程开源要求。已在报告提供提交前填写与推送说明。"
+      "status": "verified",
+      "verification_note": "源码已推送到公开 GitHub 仓库 https://github.com/soyo867/experiment1-secure-transfer，main 分支历史可见。"
     },
     {
       "id": "R13",
@@ -383,7 +383,7 @@
     "skipped": 0,
     "environment": "Windows 10.0.26300 / Python 3.11.5",
     "source_of_measurements": "evidence/integration_tests.json",
-    "note": "32项真实TLS集成、24项协议/存储/生命周期单元均通过，无跳过；GUI、局部Windows ACL、真实MP4录像及13页PDF均已验证。姓名学号与远程推送按用户要求推迟至提交前。",
+    "note": "32项真实TLS集成、24项协议/存储/生命周期单元均通过，无跳过；GUI、局部Windows ACL、真实MP4录像及13页PDF均已验证。姓名、学号和公开GitHub仓库已填入并重新打包。",
     "unit_tests": 24,
     "total_tests": 56,
     "technical_requirements_complete": true

@@ -4,7 +4,7 @@
   "failures": 0,
   "errors": 0,
   "skipped": [],
-  "seconds": 29.151,
+  "seconds": 29.169,
   "python": "3.11.5",
   "platform": "Windows-10-10.0.26300-SP0",
   "transport": "Actual localhost TLS sockets with freshly generated CA and pinned client identities",
@@ -13,7 +13,7 @@
       "connections": 2,
       "total_bytes": 524288,
       "rate": 131072,
-      "seconds": 4.031
+      "seconds": 4.047
     },
     "daemon_restart_resume": {
       "upload_offset": 131072,
@@ -30,8 +30,8 @@
       "bytes": 524288,
       "slow_bytes_per_second": 131072,
       "fast_bytes_per_second": 1048576,
-      "slow_seconds": 4.094,
-      "fast_seconds": 0.609
+      "slow_seconds": 4.109,
+      "fast_seconds": 0.594
     }
   }
 }

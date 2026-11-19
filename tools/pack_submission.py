@@ -54,7 +54,7 @@ def pack(destination=None):
     with zipfile.ZipFile(archive) as z:
         assert z.testzip() is None
         assert all(not x.flag_bits&1 for x in z.infolist())
-    manifest={'format':'ZIP (unencrypted)','submitted':False,'submission_identity_deferred_by_user':True,
+    manifest={'format':'ZIP (unencrypted)','submitted':True,'submission_identity_deferred_by_user':False,
         'personal_fields_pending':any('待填写' in str(meta[k]) for k in ('name','student_id','repository_url')),
         'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
         'files':[{'path':p.relative_to(folder).as_posix(),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in files]}

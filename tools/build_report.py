@@ -82,7 +82,7 @@ def build(output=None):
         ['第45页：服务端目录ACL','独立用户根目录、严格文件名、链接拒绝；Windows/Linux ACL脚本'],
         ['第2–3页：提交物与Git','源码、MP4全过程演示、PDF、无加密ZIP、本地Git历史；远程URL待真实填写']
     ],[190,W-190])
-    p('验收方式：真实 TCP/TLS 集成测试覆盖多用户、长连接、恢复与攻击输入；GUI测试覆盖交互并发；所有结果保存在 evidence/，报告数据依据本次实测。本阶段完成技术作业，按当前要求暂不提交；姓名、学号与远程仓库在提交前填写。','small')
+    p('验收方式：真实 TCP/TLS 集成测试覆盖多用户、长连接、恢复与攻击输入；GUI测试覆盖交互并发；所有结果保存在 evidence/，报告数据依据本次实测。姓名、学号和公开 GitHub 仓库信息已填入。','small')
 
     page('01  需求与系统架构')
     p('文件传输同时包含机密性、对端身份、边界划分、完整接收与访问控制。TCP 本身只提供有序字节流，不提供文件边界，也不验证文件属于哪位用户。因此系统分成 TLS 安全通道、SFT/1 帧层、传输状态层和文件权限层。')
@@ -229,7 +229,7 @@ def build(output=None):
         ['p40 用户带宽加分','security.BandwidthLimiter；每UserStore共享limiter；Server._dispatch双向计费；报告07、09'],
         ['p45 目录ACL配置','security.file_name/confined/no_link/secure_open；每用户root；tools/acl_windows.ps1与acl_linux.sh；报告06'],
         ['p33 运行过程视频','源码编译检查、证书初始化、服务端部署、GUI操作、测试输出；视频作为独立MP4交付'],
-        ['p2-3 格式与Git记录','源码、MP4、PDF及无加密ZIP；本地Git完整历史；个人命名与远程推送按用户要求推迟到提交前']
+        ['p2-3 格式与Git记录','源码、MP4、PDF及无加密ZIP；本地Git完整历史；个人命名与公开GitHub仓库均已完成']
     ],[135,W-135])
     p('完整逐条矩阵见docs/requirements.json，区分已验证技术要求与提交前信息。源代码引用均相对于源码根目录的securetransfer/，函数名用于定位实际校验逻辑；测试函数名与完整结果保存在evidence日志。','small')
 
@@ -239,8 +239,8 @@ def build(output=None):
     p('私钥和用户文件不随源码发布。评阅者运行setup_demo即可生成独立实验身份；runtime已有server.json时脚本保留现有部署，避免意外替换证书和数据。要重新初始化，指定新的空目录。Windows/Linux ACL脚本的参数与操作范围写在脚本头部。')
     h('提交格式与版本历史')
     code('姓名_学号_EX1B/\n  姓名_学号_ex1B_src/\n  姓名_学号_ex1B_play.mp4\n  姓名_学号_ex1B_report.pdf')
-    p('按讲义使用无加密ZIP，无README，说明集中在本报告。提交截止：2026年11月24日23:55。源码采用MIT许可，本地Git记录与history.bundle保存开发历史。用户当前要求暂不提交，因此保留姓名、学号和远程URL占位；正式提交前填写docs/submission.json、推送到真实GitHub/Gitee/GitLab仓库，再重建报告与ZIP。本地bundle保存历史，远程仓库完成后才满足讲义开源要求。')
-    code('git remote add origin <实际仓库URL>\ngit push -u origin <当前分支>\n# 填写 docs/submission.json 后；Windows报告构建需微软雅黑\npython -m pip install -r requirements-dev.txt\npython tools/build_report.py\npython tools/pack_submission.py --destination <新的输出目录>')
+    p('按讲义使用无加密ZIP，无README，说明集中在本报告。提交截止：2026年11月24日23:55。源码采用MIT许可，本地Git记录与history.bundle保存开发历史。姓名、学号和远程仓库地址已填入 docs/submission.json。源码已推送到公开 GitHub 仓库 https://github.com/soyo867/experiment1-secure-transfer 的 main 分支，本地 bundle 同时保存完整历史。')
+    code('git remote -v\n# 当前公开仓库\nhttps://github.com/soyo867/experiment1-secure-transfer\npython -m pip install -r requirements-dev.txt\npython tools/build_report.py\npython tools/pack_submission.py --destination <新的输出目录>')
     h('参考资料与学习记录')
     for label,url in [('Python ssl：TLS上下文、证书与主机名验证','https://docs.python.org/3/library/ssl.html'),('cryptography：X.509证书生成与CA层次','https://cryptography.io/en/latest/x509/tutorial/')]:
         p(f'<link href="{url}" color="#087f8c">{label}</link>','small')
